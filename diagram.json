@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "Sejal",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "temp", "top": -170, "left": -260, "attrs": { "value": "250" } },
+    { "type": "wokwi-potentiometer", "id": "smoke", "top": -70, "left": -260, "attrs": { "value": "100" } },
+    { "type": "wokwi-slide-switch", "id": "flame", "top": 60, "left": -260, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -210, "left": 300, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-led", "id": "green", "top": 30, "left": 330, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "yellow", "top": 100, "left": 330, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "red", "top": 170, "left": 330, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "fan", "top": 240, "left": 330, "attrs": { "color": "blue" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 300, "left": 300, "attrs": {} },
+    { "type": "wokwi-pushbutton", "id": "reset", "top": 330, "left": -240, "attrs": {} }
+  ],
+  "connections": [
+    ["temp:VCC", "uno:5V", "red"],
+    ["temp:GND", "uno:GND.1", "black"],
+    ["temp:SIG", "uno:A0", "green"],
+
+    ["smoke:VCC", "uno:5V", "red"],
+    ["smoke:GND", "uno:GND.1", "black"],
+    ["smoke:SIG", "uno:A1", "green"],
+
+    ["flame:1", "uno:GND.1", "black"],
+    ["flame:2", "uno:2", "green"],
+    ["flame:3", "uno:5V", "red"],
+
+    ["lcd:VCC", "uno:5V", "red"],
+    ["lcd:GND", "uno:GND.1", "black"],
+    ["lcd:SDA", "uno:A4", "green"],
+    ["lcd:SCL", "uno:A5", "blue"],
+
+    ["green:A", "uno:8", "green"],
+    ["green:C", "uno:GND.1", "black"],
+
+    ["yellow:A", "uno:9", "green"],
+    ["yellow:C", "uno:GND.1", "black"],
+
+    ["red:A", "uno:10", "green"],
+    ["red:C", "uno:GND.1", "black"],
+
+    ["fan:A", "uno:11", "blue"],
+    ["fan:C", "uno:GND.1", "black"],
+
+    ["buzzer:1", "uno:6", "green"],
+    ["buzzer:2", "uno:GND.1", "black"],
+
+    ["reset:1.l", "uno:3", "green"],
+    ["reset:2.l", "uno:GND.1", "black"]
+  ],
+  "dependencies": {}
+}
